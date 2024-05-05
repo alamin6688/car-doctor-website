@@ -9,10 +9,10 @@ const Navbar = () => {
     </>
 
   return (
-    <div className="navbar bg-base-100 h-28 mb-4">
+    <div className="navbar bg-base-100 h-28 mb-8">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden pr-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -36,7 +36,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to='/' className="btn btn-ghost text-xl">
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className="w-3/4"/>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -45,7 +45,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-warning">Appointment</button>
+        <button className="btn text-[18px] bg-[#ff2a00] hover:bg-[#ff2a00] text-white border-none ">Appointment</button>
       </div>
     </div>
   );

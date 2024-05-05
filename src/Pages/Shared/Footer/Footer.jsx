@@ -2,9 +2,10 @@ import logo from '../../../assets/logo.svg';
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content">
+    <div>
+    <footer className="footer p-10 bg-[#151515] text-white">
       <aside>
-        <img src={logo} alt="" />
+        <img src={logo} alt=""/>
         <p>
           ACME Industries Ltd.
           <br />
@@ -31,7 +32,8 @@ const Footer = () => {
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>
       </nav>
-    </footer>
+  </footer>
+  </div>
   );
 };
 
