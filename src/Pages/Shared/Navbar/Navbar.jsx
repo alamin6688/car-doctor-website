@@ -4,8 +4,13 @@ import logo from '../../../assets/logo.svg';
 const Navbar = () => {
 
     const navItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
+        <li>
+          <Link to='/' className="text-[16px] font-bold text-[#FF3811]">Home</Link>
+        </li>
+        <li>
+          <Link to='/about' className="text-[16px] font-bold">About
+          </Link>
+        </li>
     </>
 
   return (

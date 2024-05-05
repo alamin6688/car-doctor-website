@@ -18,10 +18,10 @@ const About = () => {
             <h1 className="text-5xl font-bold">
                 We are qualified & <br /> of experience <br /> in this field
             </h1>
-            <p className="py-6">
+            <p className="py-6 text-[18px]">
                 We offer comprehensive reviews, insightful articles and helpful tips to empower your car journey. From latest releases to maintenance advice, trust us to be your ultimate guide in the world of automobiles. 
             </p>
-            <p className="py-6">
+            <p className="py-6 text-[18px]">
                 Discover a world of automotive expertise and passion on our car website with a team of highly qualified professionals boasting years of industry experience. 
             </p>
             <button className="btn bg-[#FF3811] hover:bg-[#ff2a00] text-white">
