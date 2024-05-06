@@ -1,11 +1,11 @@
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logoImg from '../../assets/images/login/login.svg'
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../Firebase/firebaseConfig';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import 'animate.css';
 
