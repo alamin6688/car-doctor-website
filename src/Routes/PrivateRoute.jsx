@@ -11,15 +11,15 @@ const PrivateRoute = ({children}) => {
 
     if(loading){
         return <div className="text-center mt-10">
-            <span className="loading loading-bars loading-lg"></span>
+            <progress className="progress w-56"></progress>
         </div>
     }
 
-    if(user){
+    if(user?.email){
         return children;
     }
 
-    return <Navigate state={location.pathname} to="/login"></Navigate>
+    return <Navigate state={location.pathname} to="/login" replace></Navigate>
 };
 
 export default PrivateRoute;
