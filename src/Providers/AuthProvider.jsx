@@ -42,17 +42,17 @@ const AuthProvider = ({children}) => {
             const userEmail = currentUser?.email || user?.email;
             const loggedUser = {email: userEmail};
             setUser(currentUser);
-            console.log('user in the auth state changed', currentUser);
+            // console.log('user in the auth state changed', currentUser);
             setLoading(false);
             // if user exits then issue a token
             if(currentUser){
-                axios.post( 'http://localhost:5000/jwt',loggedUser, {withCredentials: true})
+                axios.post( 'https://cars-doctor-server-psi.vercel.app/jwt',loggedUser, {withCredentials: true})
                 .then(res =>{
                     console.log('token response', res.data);
                 })
             }
             else{
-                axios.post('http://localhost:5000/logout', loggedUser, {
+                axios.post('https://cars-doctor-server-psi.vercel.app/logout', loggedUser, {
                     withCredentials: true
                 })
                 .then(res =>{

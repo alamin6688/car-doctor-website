@@ -20,7 +20,7 @@ const Login = () => {
 
   //Google Sign In
   const handleGoogleSignIn = () =>{
-    console.log('Google handle clicked')
+    // console.log('Google handle clicked')
     signInWithPopup(auth, provider)
     .then(result => {
       const user = result.user;
@@ -39,7 +39,7 @@ const Login = () => {
 
   // Github Sign In
   const handleGithubSignIn = () =>{
-    console.log('Github handle clicked');
+    // console.log('Github handle clicked');
     signInWithPopup(auth, githubProvider)
     .then(result => {
       const user = result.user;
@@ -78,9 +78,9 @@ const Login = () => {
 
 
       // Get access token 
-      axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+      axios.post('https://cars-doctor-server-psi.vercel.app/jwt', user, {withCredentials: true})
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         if(res.data.success){
           // Navigate after login
           navigate(location?.state ? location?.state  : '/');

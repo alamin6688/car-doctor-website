@@ -3,7 +3,6 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import BookingRow from "./BookingRow";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import axios from "axios";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const Bookings = () => {
@@ -11,39 +10,25 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const axiosSecure = useAxiosSecure();
 
-  // const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  // const url = `https://cars-doctor-server-psi.vercel.app/bookings?email=${user?.email}`;
   const url = `/bookings?email=${user?.email}`;
 
   useEffect(() => {
 
     axiosSecure.get(url)
     .then(res => setBookings(res.data))
-
-    // axios.get(url, {withCredentials: true})
-    // .then(res =>{
-    //   setBookings(res.data);
-    // })
-
-    // fetch(url)
-    //   .then((res) => res.json())
-    //   .then((data) => setBookings(data));
-
   }, [url, axiosSecure]);
 
 
   const handleDelete = id =>{
     const proceed = confirm('Are you sure you want to delete?')
     if(proceed){
-        fetch(`http://localhost:5000/bookings/${id}`,{
+        fetch(`https://cars-doctor-server-psi.vercel.app/bookings/${id}`,{
             method: 'DELETE',
-            // headers: {
-            //     'content-type': 'application/json'
-            // },
-            // body: JSON.stringify()
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.deletedCount > 0){
                 toast.success('Deleted successfully!')
                 const remaining = bookings.filter(booking => booking._id !== id);
@@ -57,7 +42,7 @@ const Bookings = () => {
   }
 
   const handleBookingConfirm = id =>{
-    fetch(`http://localhost:5000/bookings/${id}`,{
+    fetch(`https://cars-doctor-server-psi.vercel.app/bookings/${id}`,{
       method: 'PATCH',
       headers: {
           'content-type': 'application/json'
@@ -66,7 +51,7 @@ const Bookings = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      // console.log(data)
       if(data.modifiedCount > 0){
         toast.success('Confirmed successfully!')
         // Update State
