@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import BookingRow from "./BookingRow";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 const Bookings = () => {
   const { user } = useContext(AuthContext);
@@ -11,9 +12,14 @@ const Bookings = () => {
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
+
+    axios.get(url, {withCredentials: true})
+    .then(res =>{
+      setBookings(res.data);
+    })
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => setBookings(data));
   }, [url]);
 
 
@@ -64,7 +70,7 @@ const Bookings = () => {
       }
     })
   }
-
+  
   return (
     <div>
       <h2 className="text-5xl font-bold text-center mb-10">Your Bookings</h2>
@@ -93,7 +99,7 @@ const Bookings = () => {
           </tbody>
         </table>
       </div>
-      <ToastContainer />
+      <ToastContainer/>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import app from '../../Firebase/firebaseConfig';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import 'animate.css';
+import axios from 'axios';
 
 const Login = () => {
   // const [showPassword, setShowPassword] = useState(false);
@@ -65,17 +66,29 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password)
+    // console.log(email,password)
+
     signIn(email,password)
-    .then(result => {
-      console.log(result.user)
-      
-    // Navigate after login
-    navigate(location?.state ? location.state  : '/');
-    })
-    .catch(error => {
-      console.error(error)
-    })
+      .then(result => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const user ={ email };
+
+
+      // Get access token 
+      axios.post('http://localhost:5000/jwt', user, {withCredentials: true})
+      .then(res => {
+        console.log(res.data);
+        if(res.data.success){
+          // Navigate after login
+          navigate(location?.state ? location?.state  : '/');
+        }
+      });
+        
+      })
+      .catch(error => {
+        console.error(error)
+      })
   };
 
   return (
