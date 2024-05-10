@@ -59,7 +59,7 @@ const Signup = () => {
               toast.success('User created ! Redirecting to home page....', { autoClose: 2000 });
               setTimeout(() => {
                   // Navigate after a delay of 1900ms (adjust the delay time as needed)
-                  // navigate(location?.state ? location.state : '/');
+                  navigate(location?.state ? location.state : '/');
               }, 2100);
           })
             .catch((error) => {
