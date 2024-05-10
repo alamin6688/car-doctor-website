@@ -5,10 +5,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../Firebase/firebaseConfig';
-import { useContext } from 'react';
-import { AuthContext } from '../../Providers/AuthProvider';
+// import { useContext } from 'react';
+// import { AuthContext } from '../../Providers/AuthProvider';
 import 'animate.css';
 import axios from 'axios';
+import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
   // const [showPassword, setShowPassword] = useState(false);
@@ -56,7 +57,8 @@ const Login = () => {
   }
 
 
-  const { signIn } = useContext(AuthContext);
+  // const { signIn } = useContext(AuthContext);
+  const {signIn} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   console.log('Location in the login page', location);
