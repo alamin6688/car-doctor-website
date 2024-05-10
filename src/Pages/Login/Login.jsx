@@ -81,7 +81,7 @@ const Login = () => {
         console.log(res.data);
         if(res.data.success){
           // Navigate after login
-          navigate(location?.state ? location?.state  : '/');
+          // navigate(location?.state ? location?.state  : '/');
         }
       });
         

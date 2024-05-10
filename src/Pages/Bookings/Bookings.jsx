@@ -31,7 +31,7 @@ const Bookings = () => {
             // headers: {
             //     'content-type': 'application/json'
             // },
-            // body: JSON.stringify(proceed)
+            // body: JSON.stringify()
         })
         .then(res => res.json())
         .then(data => {
